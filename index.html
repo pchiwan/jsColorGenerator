@@ -38,37 +38,89 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h1>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>When trying to build cool, modern, beautiful websites there's a pretty high chance you'll be using different colors to do so. And, if you're loading content dynamically, chances are even higher that you'll be needing LOTS of different colors. You may spend hours defining a large set of your favourite, gorgeous Pantones. Or -if you're not too picky with what may come out- you can generate random colors on the fly. How, you ask? Well, you'll find hundreds of solutions on the internet, and this is just another one.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<h1>
+<a name="the-tool" class="anchor" href="#the-tool"><span class="octicon octicon-link"></span></a>The tool</h1>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<h2>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
 
 <h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<a name="usebackpack" class="anchor" href="#usebackpack"><span class="octicon octicon-link"></span></a><strong>useBackpack</strong>
+</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>The <code>jsColorGenerator</code> carries a "backpack" where it keeps the collection of already generated colors. True by default.</p>
 
 <h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a name="usestaticbackpack" class="anchor" href="#usestaticbackpack"><span class="octicon octicon-link"></span></a><strong>useStaticBackpack</strong>
+</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Use a static collection of predefined color. False by default.</p>
+
+<h3>
+<a name="avoiddarks" class="anchor" href="#avoiddarks"><span class="octicon octicon-link"></span></a><strong>avoidDarks</strong>
+</h3>
+
+<p>Avoid the darkest colors (as much as possible). False by default.</p>
+
+<h3>
+<a name="avoidlights" class="anchor" href="#avoidlights"><span class="octicon octicon-link"></span></a><strong>avoidLights</strong>
+</h3>
+
+<p>Avoid the lightest colors (as much as possible). False by default.</p>
+
+<h3>
+<a name="source" class="anchor" href="#source"><span class="octicon octicon-link"></span></a><strong>source</strong>
+</h3>
+
+<p>A string containing the set of hexadecimal symbols that will be used as the source palette to generate colors. The range of these symbols is 0-9 and A-F. If you still don't know what I'm talking about head <a href="http://en.wikipedia.org/wiki/Web_colors">here</a> and read it, 'cause I ain't gonna explain it. The default value is '0123456789ABCDEF' (the whole range).</p>
+
+<h1>
+<a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h1>
+
+<h3>
+<a name="getbackpack" class="anchor" href="#getbackpack"><span class="octicon octicon-link"></span></a><strong>getBackpack</strong>
+</h3>
+
+<p>Returns a copy of the backpack. </p>
+
+<h3>
+<a name="getcolor" class="anchor" href="#getcolor"><span class="octicon octicon-link"></span></a><strong>getColor</strong>
+</h3>
+
+<p>If a 'key' is provided and the backpack contains a color with such given 'key', that color is returned. If there is no color with that 'key' in the backpack, or no 'key' is provided at all, a new color is generated and automatically stored in the backpack (when no 'key' is provided the new color is stored using the color's value as the key). </p>
+
+<h3>
+<a name="getallcolors" class="anchor" href="#getallcolors"><span class="octicon octicon-link"></span></a><strong>getAllColors</strong>
+</h3>
+
+<p>Generates and returns ALL the possible colors given the current source palette. Actually the amount of resulting colors is limited to 1000 for performance reasons.</p>
+
+<h3>
+<a name="reset" class="anchor" href="#reset"><span class="octicon octicon-link"></span></a><strong>reset</strong>
+</h3>
+
+<p>Resets the color backpack.</p>
+
+<h1>
+<a name="properties" class="anchor" href="#properties"><span class="octicon octicon-link"></span></a>Properties</h1>
+
+<h3>
+<a name="options-1" class="anchor" href="#options-1"><span class="octicon octicon-link"></span></a><strong>options</strong>
+</h3>
+
+<h3>
+<a name="staticbackpack" class="anchor" href="#staticbackpack"><span class="octicon octicon-link"></span></a><strong>staticBackpack</strong>
+</h3>
+
+<h1>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h1>
+
+<p>You can play with my example jsfiddle <a href="http://jsfiddle.net/pchiwan/3YdAd/">here</a>.</p>
       </section>
 
     </div>
