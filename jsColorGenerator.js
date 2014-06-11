@@ -20,7 +20,7 @@ function jsColorGenerator (options) {
     /// <para> ---------------------------------------------- </para>
     /// <para> avoidLights:Boolean -> Avoid light colors. False by default. </para>
     /// <para> ---------------------------------------------- </para>
-    /// <para> source:String -> String containing the set of letters that should be used to generate colors. </para>
+    /// <para> source:String -> String containing the set of characters that should be used to generate colors. </para>
     /// <para> ---------------------------------------------- </para>
     /// </param>
     /// <returns type="Object">A ColorGenerator object instance.</returns>
