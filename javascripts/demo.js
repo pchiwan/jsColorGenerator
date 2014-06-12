@@ -6,6 +6,8 @@ $(document).ready(function () {
 
 		var self = this;
 
+		var limit = 16;
+
 		var colGen = new jsColorGenerator({
 			//avoidDarks: true,
 			//avoidLights: true
@@ -18,7 +20,7 @@ $(document).ready(function () {
 
 		function refreshColors () {
 			var temp = [];
-			for (var i = 0; i < 12; i++) {
+			for (var i = 0; i < limit; i++) {
 				temp.push(colGen.getColor());
 			}
 			return temp;

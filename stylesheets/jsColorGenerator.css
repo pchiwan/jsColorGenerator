@@ -14,6 +14,9 @@ h1, h2, h3{
 	font-family: Voltaire;
 	font-weight: bold;
 }
+.wrapper, section{
+	max-width: 900px;
+}
 #header{
 	background-image: none;
 }
@@ -53,6 +56,9 @@ section #title .credits{
 	height: 40px;
 	border: 2px solid #fff;
 	border-radius: 6px;
-	margin-left: 6px;
+	margin-left: 8px;
 	font-size: 10px;
+}
+code{
+	padding: 0 !important;
 }
