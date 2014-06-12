@@ -1,5 +1,5 @@
 /********************
- * JS Color generator
+ * jsColorGenerator
  * by Sílvia Mur Blanch aka PchiwaN
  * https://github.com/pchiwan/jsColorGenerator
  *
@@ -79,11 +79,17 @@ function jsColorGenerator (options) {
     function contains (array, item) {
     	/// <summary>Inspired by underscore.js: returns true if the item is present in the array</summary>
 
+    	if (window._)
+    		return _.contains(array, item);
+
     	return array.indexOf(item) >= 0;
     }
 
     function pluck (array, key) {
     	/// <summary>Inspired by underscore.js: extracting a list of property values</summary>
+
+    	if (window._)
+    		return _.pluck(array, key);
 
     	var results = [];
     	for (var i = 0, l = array.length; i < l; i++) {
@@ -99,6 +105,9 @@ function jsColorGenerator (options) {
     	///	Inspired by underscore.js: Looks through each item in the list, returning the first one that passes a truth test (predicate), 
     	/// or undefined if no value passes the test
     	/// </summary>
+
+    	if (window._)
+    		return _.find(array, iterator);
 
     	var item;
     	for (var i = 0, l = array.length; i < l; i++) {
