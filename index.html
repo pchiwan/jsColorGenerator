@@ -6,14 +6,19 @@
     <title>jsColorGenerator by pchiwan</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheets/jsColorGenerator.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
     <script src="javascripts/respond.js"></script>
+    <script src="javascripts/demo.js"></script>
+
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!--[if lt IE 8]>
     <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
+
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
   </head>
@@ -52,7 +57,10 @@
 
 <p>Keep in mind though that, regardless of playing with randomness, there aren't that many <strong>significantly different</strong> colors in a source's range: when two color codes differ slightly they will look almost exactly the same. Therefore it's perfectly possible -and will likely happen- that the <code>jsColorGenerator</code> provides you with colors which seem to be repeated though they're actually not. That's why I'm currently planning on implementing an important improvement to ensure that randomly generated colors are significantly different -or different enough- to one another.</p>
 
-<p>NOTE: This tool is still a toddler; I know it may be flawed and that it can be highly improved. Your ideas, suggestions, and contributions are extremely welcome. </p>
+<p><strong>NOTE</strong>: This tool is still a toddler; I know it may be flawed and that it can be highly improved. Your ideas, suggestions, and contributions are extremely welcome. </p>
+
+<h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
 
 <p>In order to use the <code>jsColorGenerator</code> you must instantiate it like this.</p>
 
