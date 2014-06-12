@@ -32,9 +32,24 @@ h2 strong, h3 strong{
 	font-family: Ruluko !important;
 	color: #FFCC00;
 }
+strong{
+	font-weight: bold;
+}
 p{
 	text-align: justify;
 }
 section #title .credits{
 	color: #CCCBCB;
+}
+.color-frame{
+	margin-bottom: 18px;
+}
+.square{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border: 2px solid #fff;
+	border-radius: 6px;
+	margin-left: 6px;
+	font-size: 10px;
 }
