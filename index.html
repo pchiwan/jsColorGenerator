@@ -44,7 +44,22 @@
 <p>When trying to build cool, modern, beautiful websites there's a pretty high chance you'll be using different colors to do so. And, if you're loading content dynamically, chances are even higher that you'll be needing LOTS of different colors. You may spend hours defining a large set of your favourite, gorgeous Pantones. Or -if you're not too picky with what may come out- you can generate random colors on the fly. How, you ask? Well, you'll find hundreds of solutions on the internet, and this is just another one.</p>
 
 <h1>
-<a name="the-tool" class="anchor" href="#the-tool"><span class="octicon octicon-link"></span></a>The tool</h1>
+<a name="what-do-i-offer" class="anchor" href="#what-do-i-offer"><span class="octicon octicon-link"></span></a>What do I offer?</h1>
+
+<p>"Ok, so there are hundreds of other solutions on the internet, you said. What does your solution offer then?". My <code>jsColorGenerator</code> can be configured to generate random colors in a specific range of tones (light, dark, or any), but the most interesting feature -IMO- is the use of what I have called the "backpack". The <code>jsColorGenerator</code> carries a backpack where it keeps the collection of already generated colors, thus ensuring that those will not be generated again. Also, every generated color is paired with a key when stored, so that you may retrieve a previously generated color at any time.</p>
+
+<p>To randomly generate colors I use a source palette defined by a string containing a set of hexadecimal symbols. The range of these symbols is 0-9 and A-F, i.e.: '6789AB' (if you still don't know what I'm talking about head <a href="http://en.wikipedia.org/wiki/Web_colors">here</a> and read it, 'cause I ain't gonna explain it). The total number of possible combinations (different colors) is determined by the source and the formula <code>Math.pow(n, r)</code>, where <code>n</code> is the number of digits in the source, and <code>r</code> is the number of digits that each possible combination must have -which, for hexadecimal representation of colors, is 6-. Therefore, for the example source '6789AB' there are <code>Math.pow(6, 6) = 46656</code> possible combinations. Is that enough for you?</p>
+
+<p>Keep in mind though that, regardless of playing with randomness, there aren't that many <strong>significantly different</strong> colors in a source's range: when two color codes differ slightly they will look almost exactly the same. Therefore it's perfectly possible -and will likely happen- that the <code>jsColorGenerator</code> provides you with colors which seem to be repeated though they're actually not. That's why I'm currently planning on implementing an important improvement to ensure that randomly generated colors are significantly different -or different enough- to one another.</p>
+
+<p>NOTE: This tool is still a toddler; I know it may be flawed and that it can be highly improved. Your ideas, suggestions, and contributions are extremely welcome. </p>
+
+<p>In order to use the <code>jsColorGenerator</code> you must instantiate it like this.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">colGen</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">jsColorGenerator</span><span class="p">();</span>
+</pre></div>
+
+<p>You may configure your instance by providing a set of the following options.</p>
 
 <h2>
 <a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
@@ -53,13 +68,13 @@
 <a name="usebackpack" class="anchor" href="#usebackpack"><span class="octicon octicon-link"></span></a><strong>useBackpack</strong>
 </h3>
 
-<p>The <code>jsColorGenerator</code> carries a "backpack" where it keeps the collection of already generated colors. True by default.</p>
+<p>The <code>jsColorGenerator</code> carries a "backpack" where it keeps the collection of already generated colors. Using the backpack ensures that previously generated colors will not come out again. True by default.</p>
 
 <h3>
 <a name="usestaticbackpack" class="anchor" href="#usestaticbackpack"><span class="octicon octicon-link"></span></a><strong>useStaticBackpack</strong>
 </h3>
 
-<p>Use a static collection of predefined color. False by default.</p>
+<p>The static backpack is a collection of predefined colors. If you're not bold enough and dread the risks of random color generation you can use the static backpack instead. This way, the <code>jsColorGenerator</code> will still keep track of which colors have already been provided, ensuring they are not repeated. You may provide your own static backpack. False by default.</p>
 
 <h3>
 <a name="avoiddarks" class="anchor" href="#avoiddarks"><span class="octicon octicon-link"></span></a><strong>avoidDarks</strong>
@@ -77,7 +92,12 @@
 <a name="source" class="anchor" href="#source"><span class="octicon octicon-link"></span></a><strong>source</strong>
 </h3>
 
-<p>A string containing the set of hexadecimal symbols that will be used as the source palette to generate colors. The range of these symbols is 0-9 and A-F. If you still don't know what I'm talking about head <a href="http://en.wikipedia.org/wiki/Web_colors">here</a> and read it, 'cause I ain't gonna explain it. The default value is '0123456789ABCDEF' (the whole range).</p>
+<p>A string containing the set of hexadecimal symbols that will be used as the source palette to generate colors. The default value is '0123456789ABCDEF' (the whole range). I.e.:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">colGen</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">jsColorGenerator</span><span class="p">({</span>
+    <span class="nx">source</span><span class="o">:</span> <span class="s1">'6789AB'</span>    
+<span class="p">});</span>
+</pre></div>
 
 <h1>
 <a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h1>
@@ -113,9 +133,13 @@
 <a name="options-1" class="anchor" href="#options-1"><span class="octicon octicon-link"></span></a><strong>options</strong>
 </h3>
 
+<p>The options currently in use by the <code>jsColorGenerator</code>, so you can access and modify them at any time.</p>
+
 <h3>
 <a name="staticbackpack" class="anchor" href="#staticbackpack"><span class="octicon octicon-link"></span></a><strong>staticBackpack</strong>
 </h3>
+
+<p>You can provide and modify your own collection of predefined colors at any time.</p>
 
 <h1>
 <a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h1>
