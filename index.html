@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="stylesheets/jsColorGenerator.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
-    <script type="text/javascript" src="javascripts/respond.js"></script>
-    <script type="text/javascript" src="javascripts/demo.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/pchiwan/jsColorGenerator/master/jsColorGenerator.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <script src="javascripts/demo.js"></script>
 
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -51,11 +52,30 @@
 
 <p>"Ok, so there are hundreds of other solutions on the internet, you said. What does your solution offer then?". My <code>jsColorGenerator</code> can be configured to generate random colors in a specific range of tones (light, dark, or any), but the most interesting feature -IMO- is the use of what I have called the "backpack". The <code>jsColorGenerator</code> carries a backpack where it keeps the collection of already generated colors, thus ensuring that those will not be generated again. Also, every generated color is paired with a key when stored, so that you may retrieve a previously generated color at any time.</p>
 
+<div class="color-frame">
+  <!-- ko foreach: colors1 -->
+  <div class="square" data-bind="attr: { title: $data }, style: { backgroundColor: $data }"></div>
+  <!-- /ko -->  
+</div>
+
 <p>To randomly generate colors I use a source palette defined by a string containing a set of hexadecimal symbols. The range of these symbols is 0-9 and A-F, i.e.: '6789AB' (if you still don't know what I'm talking about head <a href="http://en.wikipedia.org/wiki/Web_colors">here</a> and read it, 'cause I ain't gonna explain it). The total number of possible combinations (different colors) is determined by the source and the formula <code>Math.pow(n, r)</code>, where <code>n</code> is the number of digits in the source, and <code>r</code> is the number of digits that each possible combination must have -which, for hexadecimal representation of colors, is 6-. Therefore, for the example source '6789AB' there are <code>Math.pow(6, 6) = 46656</code> possible combinations. Is that enough for you?</p>
+
+<div class="color-frame">
+  <!-- ko foreach: colors2 -->
+  <div class="square" data-bind="attr: { title: $data }, style: { backgroundColor: $data }"></div>
+  <!-- /ko -->  
+</div>
 
 <p>Keep in mind though that, regardless of playing with randomness, there aren't that many <strong>significantly different</strong> colors in a source's range: when two color codes differ slightly they will look almost exactly the same. Therefore it's perfectly possible -and will likely happen- that the <code>jsColorGenerator</code> provides you with colors which seem to be repeated though they're actually not. That's why I'm currently planning on implementing an important improvement to ensure that randomly generated colors are significantly different -or different enough- to one another.</p>
 
+<div class="color-frame">
+  <!-- ko foreach: colors3 -->
+  <div class="square" data-bind="attr: { title: $data }, style: { backgroundColor: $data }"></div>
+  <!-- /ko -->  
+</div>
+
 <p><strong>NOTE</strong>: This tool is still a toddler; I know it may be flawed and that it can be highly improved. Your ideas, suggestions, and contributions are extremely welcome. </p>
+<p><strong>NOTE 2</strong>: All these colors you see in the tiny squares scattered around are dynamically and randomly generated every time you load the page! </p>
 
 <h1>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
@@ -151,6 +171,11 @@
 <a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h1>
 
 <p>You can play with my example jsfiddle <a href="http://jsfiddle.net/pchiwan/3YdAd/">here</a>.</p>
+
+<div class="color-frame">
+  <!-- ko foreach: colorsDemo -->
+  <!-- /ko -->  
+</div>
       </section>
 
     </div>
