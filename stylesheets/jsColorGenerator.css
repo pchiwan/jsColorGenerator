@@ -14,6 +14,9 @@ h1, h2, h3{
 	font-family: Voltaire;
 	font-weight: bold;
 }
+#header{
+	background-image: none;
+}
 #title h1{
 	font-family: Pacifico !important;
 	font-size: 60px !important;
